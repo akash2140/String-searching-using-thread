@@ -5,8 +5,7 @@
 using namespace std;
 
 #define MAX_THREAD 4
-#define thread1 0
-#define thread2 1
+
 
 pthread_mutex_t lock;
 struct data{string original,pattern; int count,start,length_of_big_string,length_of_pattern; };
@@ -68,9 +67,11 @@ int main()
 
 	//cout<<container.length_of_pattern<<endl;
 	//cout<<container.length_of_big_string<<endl;
-	time_t t1,t2;
-	(void) time(&t1);
-	
+	//time_t t1,t2;
+	//(void) time(&t1);
+	clock_t t1,t2;
+	t1=clock();
+
 	for(i=0;i<MAX_THREAD;i++)
 	{
 		pthread_mutex_lock(&lock);
@@ -83,9 +84,9 @@ int main()
 	
 	
 	
-	
-	(void) time(&t2);	
-	cout<<"time taken :"<<(float)(t2-t1)<<endl;
+	t2=clock();
+	//(void) time(&t2);	
+	cout<<"time taken :"<<(float)(t2-t1)/1000<<" seconds "<<endl;
 	cout<<"number of thread used :"<<MAX_THREAD<<endl;
-	cout<<container.count<<endl;
+	cout<<"number of pattern found"<<container.count<<endl;
 }
