@@ -46,7 +46,7 @@ void *thread_of_sum(void *args)
 
 int main()
 {
-	int i,n,flag=0,count=0;
+	int i,n,flag=0,count=0,j;
 	pthread_t thread_id[MAX_THREAD];
 	
 	struct data container;
@@ -90,8 +90,8 @@ int main()
 	cout<<"number of thread used :"<<MAX_THREAD<<endl;
 	cout<<"number of pattern found"<<container.count<<endl;
 	
-	time(&t1);
-	for(i=0;i<(container.length_of_big_string-container.length_of_pattern);i++)
+	t1=clock();
+	for(i=0;i<(container.length_of_big_string-container.length_of_pattern+1);i++)
 	{	
 		flag=0;
 		for(j=0;j<container.length_of_pattern;j++)
@@ -108,7 +108,7 @@ int main()
 		}
 			
 	}
-	time(&t2);
+	t2=clock();
 	
 	cout<<"Time without thread"<<(float)t2-t1;
 	count<<"Number of pattern found"<<count<<endl;
