@@ -6,6 +6,7 @@ using namespace std;
 
 #define MAX_THREAD 4
 
+//clock() for ticks
 
 pthread_mutex_t lock;
 struct data{string original,pattern; int count,start,length_of_big_string,length_of_pattern; };
@@ -86,7 +87,7 @@ int main()
 	
 	t2=clock();
 	//(void) time(&t2);	
-	cout<<"time taken :"<<(float)(t2-t1)/1000<<" seconds "<<endl;
+	cout<<"Ticks with thread  :"<<(t2-t1)<<endl;
 	cout<<"number of thread used :"<<MAX_THREAD<<endl;
 	cout<<"number of pattern found"<<container.count<<endl;
 	
@@ -109,9 +110,9 @@ int main()
 			
 	}
 	t2=clock();
-	
-	cout<<"Time without thread"<<(float)t2-t1;
-	count<<"Number of pattern found"<<count<<endl;
+	cout<<endl;
+	cout<<"Ticks without thread :"<<(t2-t1)<<endl;
+	cout<<"Number of pattern found "<<count<<endl;
 	
 	
 }
