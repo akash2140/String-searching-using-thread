@@ -1,3 +1,4 @@
+//Logger an amazing project
 #include<stdio.h>
 #include<iostream>
 #include<time.h>
